@@ -1,0 +1,283 @@
+{
+  "CDtipoBiens": [
+    { "Cod_tipo": 1, "Descripcion": "Casa" },
+    { "Cod_tipo": 2, "Descripcion": "Departamento" },
+    { "Cod_tipo": 3, "Descripcion": "Terreno" },
+    { "Cod_tipo": 4, "Descripcion": "Local Comercial" },
+    { "Cod_tipo": 5, "Descripcion": "Oficina" },
+    { "Cod_tipo": 6, "Descripcion": "Galpón" }
+  ],
+
+  "Propietarios": [
+    {
+      "IDPropietario": 1,
+      "ApeyNombre": "Juan Pérez",
+      "Numdoc": 12345678,
+      "Direccion": "Av. Libertador 123",
+      "Email": "juan.perez@example.com",
+      "Fechanac": "1980-05-10T00:00:00",
+      "Cod_estado_Civil": 1,
+      "Password": "password123",
+      "Tipo": 2
+    },
+    {
+      "IDPropietario": 2,
+      "ApeyNombre": "María Gómez",
+      "Numdoc": 87654321,
+      "Direccion": "Calle 5 de Mayo 456",
+      "Email": "maria.gomez@example.com",
+      "Fechanac": "1975-08-20T00:00:00",
+      "Cod_estado_Civil": 2,
+      "Password": "password456",
+      "Tipo": 1
+    },
+    {
+      "IDPropietario": 3,
+      "ApeyNombre": "Carlos Rodríguez",
+      "Numdoc": 13579246,
+      "Direccion": "Calle Mayor 321",
+      "Email": "carlos.rodriguez@example.com",
+      "Fechanac": "1990-02-15T00:00:00",
+      "Cod_estado_Civil": 1,
+      "Password": "password789",
+      "Tipo": 2
+    },
+    {
+      "IDPropietario": 4,
+      "ApeyNombre": "Ana Fernández",
+      "Numdoc": 98765432,
+      "Direccion": "Av. Centenario 789",
+      "Email": "ana.fernandez@example.com",
+      "Fechanac": "1985-09-25T00:00:00",
+      "Cod_estado_Civil": 2,
+      "Password": "passwordabc",
+      "Tipo": 2
+    },
+    {
+      "IDPropietario": 5,
+      "ApeyNombre": "Luis Martínez",
+      "Numdoc": 24680135,
+      "Direccion": "Av. Corrientes 567",
+      "Email": "luis.martinez@example.com",
+      "Fechanac": "1982-07-30T00:00:00",
+      "Cod_estado_Civil": 1,
+      "Password": "passwordxyz",
+      "Tipo": 1
+    }
+  ],
+
+  "Bienes": [
+    {
+      "Idbien": 1,
+      "Tipo": 1,
+      "Direccion": "Av. San Martín 789",
+      "Superficie": 120.5,
+      "Nomenclatura_catastral": "1234567890",
+      "Marca": "Ford",
+      "Modelo": "Focus",
+      "Anio": 2018,
+      "Patente": "ABC123",
+      "TipoBien": { "Cod_tipo": 1 }
+    },
+    {
+      "Idbien": 2,
+      "Tipo": 2,
+      "Direccion": "Av. Rivadavia 456",
+      "Superficie": 80.2,
+      "Nomenclatura_catastral": "0987654321",
+      "Marca": "Toyota",
+      "Modelo": "Corolla",
+      "Anio": 2020,
+      "Patente": "XYZ987",
+      "TipoBien": { "Cod_tipo": 2 }
+    },
+    {
+      "Idbien": 3,
+      "Tipo": 3,
+      "Direccion": "Av. Libertador 456",
+      "Superficie": 300.75,
+      "Nomenclatura_catastral": "2468013579",
+      "Marca": null,
+      "Modelo": null,
+      "Anio": null,
+      "Patente": null,
+      "TipoBien": { "Cod_tipo": 3 }
+    },
+    {
+      "Idbien": 4,
+      "Tipo": 4,
+      "Direccion": "Av. San Juan 987",
+      "Superficie": 150.3,
+      "Nomenclatura_catastral": "9876543210",
+      "Marca": "Nike",
+      "Modelo": "Store",
+      "Anio": 2022,
+      "Patente": "STO789",
+      "TipoBien": { "Cod_tipo": 4 }
+    },
+    {
+      "Idbien": 5,
+      "Tipo": 5,
+      "Direccion": "Av. Callao 234",
+      "Superficie": 200.0,
+      "Nomenclatura_catastral": "5678901234",
+      "Marca": "IBM",
+      "Modelo": "Office",
+      "Anio": 2019,
+      "Patente": "IBM567",
+      "TipoBien": { "Cod_tipo": 5 }
+    },
+    {
+      "Idbien": 6,
+      "Tipo": 6,
+      "Direccion": "Av. Pueyrredón 789",
+      "Superficie": 500.0,
+      "Nomenclatura_catastral": "3456789012",
+      "Marca": "Tech Solutions",
+      "Modelo": "Warehouse",
+      "Anio": 2015,
+      "Patente": "TS789",
+      "TipoBien": { "Cod_tipo": 6 }
+    }
+  ],
+
+  "BienPropietarios": [
+    {
+      "Id_Bien": 1,
+      "Id_Propietario": 1,
+      "Porcentaje_Propiedad": 50
+    },
+    {
+      "Id_Bien": 2,
+      "Id_Propietario": 2,
+      "Porcentaje_Propiedad": 100
+    },
+    {
+      "Id_Bien": 3,
+      "Id_Propietario": 3,
+      "Porcentaje_Propiedad": 75
+    },
+    {
+      "Id_Bien": 4,
+      "Id_Propietario": 4,
+      "Porcentaje_Propiedad": 100
+    },
+    {
+      "Id_Bien": 5,
+      "Id_Propietario": 5,
+      "Porcentaje_Propiedad": 80
+    },
+    {
+      "Id_Bien": 6,
+      "Id_Propietario": 1,
+      "Porcentaje_Propiedad": 100
+    }
+  ],
+
+  "Cuotas": [
+    {
+      "Idcuota": 1,
+      "Id_bien": 1,
+      "Monto": 5000,
+      "Fecha_vencimiento": "2024-07-15T00:00:00",
+      "CodEstado": 1
+    },
+    {
+      "Idcuota": 2,
+      "Id_bien": 2,
+      "Monto": 3000,
+      "Fecha_vencimiento": "2024-07-20T00:00:00",
+      "CodEstado": 2
+    },
+    {
+      "Idcuota": 3,
+      "Id_bien": 3,
+      "Monto": 8000,
+      "Fecha_vencimiento": "2024-08-10T00:00:00",
+      "CodEstado": 1
+    },
+    {
+      "Idcuota": 4,
+      "Id_bien": 4,
+      "Monto": 4000,
+      "Fecha_vencimiento": "2024-08-20T00:00:00",
+      "CodEstado": 2
+    },
+    {
+      "Idcuota": 5,
+      "Id_bien": 5,
+      "Monto": 6000,
+      "Fecha_vencimiento": "2024-09-05T00:00:00",
+      "CodEstado": 1
+    },
+    {
+      "Idcuota": 6,
+      "Id_bien": 6,
+      "Monto": 7000,
+      "Fecha_vencimiento": "2024-09-15T00:00:00",
+      "CodEstado": 2
+    }
+  ],
+
+  "Pagos": [
+    {
+      "Id_Pago": 1,
+      "Id_cuota": 1,
+      "Fecha_pago": "2024-07-10T00:00:00",
+      "Monto_pagado": 5000
+    },
+    {
+      "Id_Pago": 2,
+      "Id_cuota": 2,
+      "Fecha_pago": "2024-07-20T00:00:00",
+      "Monto_pagado": 3000
+    },
+    {
+      "Id_Pago": 3,
+      "Id_cuota": 3,
+      "Fecha_pago": "2024-08-05T00:00:00",
+      "Monto_pagado": 8000
+    },
+    {
+      "Id_Pago": 4,
+      "Id_cuota": 4,
+      "Fecha_pago": "2024-08-20T00:00:00",
+      "Monto_pagado": 4000
+    },
+    {
+      "Id_Pago": 5,
+      "Id_cuota": 5,
+      "Fecha_pago": "2024-09-01T00:00:00",
+      "Monto_pagado": 6000
+    },
+    {
+      "Id_Pago": 6,
+      "Id_cuota": 6,
+      "Fecha_pago": "2024-09-15T00:00:00",
+      "Monto_pagado": 7000
+    }
+  ],
+
+  "PagoPropietarios": [
+    { "Id_Pago": 1, "Id_Propietario": 1, "Id_Bien": 1 },
+    { "Id_Pago": 2, "Id_Propietario": 2, "Id_Bien": 2 },
+    { "Id_Pago": 3, "Id_Propietario": 3, "Id_Bien": 3 },
+    { "Id_Pago": 4, "Id_Propietario": 4, "Id_Bien": 4 },
+    { "Id_Pago": 5, "Id_Propietario": 5, "Id_Bien": 5 },
+    { "Id_Pago": 6, "Id_Propietario": 1, "Id_Bien": 6 }
+  ],
+
+  "CDCuotaestados": [
+    { "Id_estado": 1, "Descripcion": "Pendiente" },
+    { "Id_estado": 2, "Descripcion": "Pagado" },
+    { "Id_estado": 3, "Descripcion": "En mora" },
+    { "Id_estado": 4, "Descripcion": "Cancelado" }
+  ],
+
+  "CDest_civs": [
+    { "Codigo": 1, "Descripcion": "Soltero/a" },
+    { "Codigo": 2, "Descripcion": "Casado/a" },
+    { "Codigo": 3, "Descripcion": "Viudo/a" },
+    { "Codigo": 4, "Descripcion": "Divorciado/a" }
+  ]
+}

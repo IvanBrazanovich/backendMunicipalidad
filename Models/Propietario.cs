@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WebMunicipalidadTP.Models
 {
     [Table("Propietario")]
-  
+
     public class Propietario
     {
         [Key] public int IDPropietario { get; set; } // Clave primaria
@@ -14,7 +14,7 @@ namespace WebMunicipalidadTP.Models
         public string? Email { get; set; }
         public DateTime? Fechanac { get; set; }
         public int? Cod_estado_Civil { get; set; }
-        public required string  Password { get; set; }
+        public required string Password { get; set; }
 
         [Range(1, 2, ErrorMessage = "Tipo must be 1 (admin) or 2 (user)")]
         public int Tipo { get; set; }

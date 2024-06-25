@@ -161,17 +161,79 @@ namespace MunicipalidadTPApi.Controllers
 
 
 
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBien(int id, Bien bien)
+        public async Task<IActionResult> PutBien(int id, BienPayloadPut bienPayload)
         {
-            if (id != bien.Idbien)
+            if (id != bienPayload.idBien)
             {
                 return BadRequest();
             }
 
-            _context.Entry(bien).State = EntityState.Modified;
+            // Cargar el bien existente desde la base de datos
+            var bien = await _context.Bienes
+                .Include(b => b.BienesPropietarios)
+                .FirstOrDefaultAsync(b => b.Idbien == id);
 
+            if (bien == null)
+            {
+                return NotFound();
+            }
+
+            // Actualizar propiedades del bien
+            bien.Tipo = bienPayload.Tipo ?? bien.Tipo;
+            bien.Direccion = bienPayload.Direccion ?? bien.Direccion;
+            bien.Superficie = bienPayload.Superficie ?? bien.Superficie;
+            bien.Nomenclatura_catastral = bienPayload.Nomenclatura_catastral ?? bien.Nomenclatura_catastral;
+            bien.Marca = bienPayload.Marca ?? bien.Marca;
+            bien.Modelo = bienPayload.Modelo ?? bien.Modelo;
+            bien.Anio = bienPayload.Anio ?? bien.Anio;
+            bien.Patente = bienPayload.Patente ?? bien.Patente;
+
+            // Actualizar tipo de bien
+            bien.TipoBien = bienPayload.TipoBien;
+
+            // Actualizar propietarios
+            if (bienPayload.Propietarios != null && bienPayload.Propietarios.Any())
+            {
+                // Eliminar propietarios que ya no están en la lista
+                var propietariosIds = bienPayload.Propietarios.Select(p => p.idPropietario).ToList();
+                var bienPropietariosToRemove = bien.BienesPropietarios
+                    .Where(bp => !propietariosIds.Contains(bp.Id_Propietario))
+                    .ToList();
+
+                _context.BienesPropietarios.RemoveRange(bienPropietariosToRemove);
+
+                // Agregar nuevos propietarios o actualizar existentes
+                foreach (var propietario in bienPayload.Propietarios)
+                {
+                    var bienPropietario = bien.BienesPropietarios
+                        .FirstOrDefault(bp => bp.Id_Propietario == propietario.idPropietario);
+
+                    if (bienPropietario == null)
+                    {
+                        var newBienPropietario = new BienPropietario
+                        {
+                            Id_Bien = id,
+                            Id_Propietario = propietario.idPropietario,
+                            Porcentaje_Propiedad = 100,
+                            Bien = bien,
+                            Propietario = await _context.Propietarios.FindAsync(propietario.idPropietario)
+                        };
+                        _context.BienesPropietarios.Add(newBienPropietario);
+                    }
+                    else
+                    {
+                        bienPropietario.Porcentaje_Propiedad = 100;
+                    }
+                }
+            }
+            else
+            {
+                // Si no hay propietarios en el payload, eliminar todos los existentes
+                _context.BienesPropietarios.RemoveRange(bien.BienesPropietarios);
+            }
+
+            // Guardar cambios
             try
             {
                 await _context.SaveChangesAsync();
@@ -188,7 +250,10 @@ namespace MunicipalidadTPApi.Controllers
                 }
             }
 
-            return NoContent();
+
+            // Retornar un mensaje de éxito
+            return Ok("El bien se actualizó correctamente.");
+
         }
 
         [HttpDelete("{id}")]
@@ -328,4 +393,32 @@ public class BienPayload
     public ICollection<Cuota>? Cuotas { get; set; }
     public ICollection<PagoPropietario>? PagosPropietarios { get; set; }
     public ICollection<Propietario>? Propietarios { get; set; }
+}
+
+
+public class BienPayloadPut
+{
+    public int idBien { get; set; } // Clave primaria
+    public int? Tipo { get; set; }
+    public string? Direccion { get; set; }
+    public decimal? Superficie { get; set; }
+    public string? Nomenclatura_catastral { get; set; }
+    public string? Marca { get; set; }
+    public string? Modelo { get; set; }
+    public int? Anio { get; set; }
+    public string? Patente { get; set; }
+    public CDtipoBien? TipoBien { get; set; }
+    public ICollection<PropietarioPayloadPut>? Propietarios { get; set; }
+    public ICollection<Cuota>? Cuotas { get; set; }
+    public ICollection<PagoPropietario>? PagosPropietarios { get; set; }
+}
+
+
+public class PropietarioPayloadPut
+{
+    public int idPropietario { get; set; }
+    public string apeyNombre { get; set; }
+    public string? direccion { get; set; }
+    public string? email { get; set; }
+    public int tipo { get; set; }
 }

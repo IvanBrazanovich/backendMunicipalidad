@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebMunicipalidadTP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c7a55ff4a1d0b2fd0a4cce9226dc496cf21b3bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7c514108a174080602bb3a71c5598d5c5dfb280")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebMunicipalidadTP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebMunicipalidadTP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
